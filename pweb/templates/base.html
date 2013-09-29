@@ -21,7 +21,7 @@
 
     <body class="{% block body_class %}{% endblock %}">
     <header>
-        <h1> Positively Web </h1>
+        <h1> Some Title </h1>
 
     </header>
         <nav>
@@ -32,14 +32,32 @@
                 <li> <a href="#"> Your Cart </a> </li>
             </ul>
         </nav>
+    <aside>
+
+        <ul>
+            <h1>Categories</h1>
+            {% for c in catalog_categories %}
+            <li><a href="/store/products">{{ c.name }}</a></li>
+            {% endfor %}
+            <li><a href="#">Some category</a></li>
+            <li><a href="#">Some category</a></li>
+            <li><a href="#">Some category</a></li>
+            <li><a href="#">Some category</a></li>
+            <li><a href="#">Some category</a></li>
+        </ul>
+    </aside>
+
+
 
     {% block body %}
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
         <![endif]-->
 
+        <section id="content">
         {% block content %}
         {% endblock content %}
+        </section>
 
         {% block javascript_library %}
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

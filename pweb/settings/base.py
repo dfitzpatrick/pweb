@@ -4,6 +4,7 @@
 
 import os, sys
 import pweb as project_module
+from django.conf import global_settings
 
 PROJECT_ROOT = os.path.dirname(os.path.realpath(project_module.__file__))
 
@@ -76,6 +77,10 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.Loader',
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
+    "store.context_processors.base",
+)
+
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -85,6 +90,7 @@ MIDDLEWARE_CLASSES = (
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
 
 ROOT_URLCONF = 'pweb.urls'
 
