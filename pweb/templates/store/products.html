@@ -6,11 +6,11 @@
 <h1>Products</h1>
     {{ request.GET.q }}
     <table border=1>
-        <tr>
+        <tr class="table-header">
             <td>Part Number</td><td>Description</td><td>Manufacturer</td>
         </tr>
     {% for p in product_list %}
-        <tr>
+        <tr class="table-item">
             <td><a href="{{p.id}}/{{p.slug}}">{{ p.part_number }}</a></td>
             <td>{{ p.description }}</td>
             <td><a href="?manufacturer={{p.manufacturer.name}}">{{p.manufacturer.name}}</td>

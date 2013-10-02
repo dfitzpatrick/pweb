@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load i18n %}
+{% load staticfiles %}
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -14,38 +15,47 @@
         <meta name="viewport" content="width=device-width" />
         <link rel="stylesheet" href="{{ STATIC_URL }}css/normalize.css" />
         <link rel="stylesheet" href="{{ STATIC_URL }}css/main.css" />
+        <link href='http://fonts.googleapis.com/css?family=Play:700' rel='stylesheet' type='text/css'>
         {% block css %}{% endblock %}
 
         <script src="{{ STATIC_URL }}js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
 
-    <body class="{% block body_class %}{% endblock %}">
-    <header>
-        <h1> Some Title </h1>
+    <body> <!--class="{% block body_class %}{% endblock %}">-->
 
+    <header>
+        <div id="header-container">
+        <h1><div id="gradient">Positively Web</div></h1>
+
+
+    <nav>
+        <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Search Products</a></li>
+            <li><a href="#">My Account</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <button type="button" name="" value="" class="yourcart">Cart (0 Items)</button>
+    </div>
     </header>
-        <nav>
-            <ul>
-               <li> <a href="#"> Home </a> </li>
-                <li> <a href="#"> About Us </a> </li>
-                <li> <a href="#"> Shop Now </a> </li>
-                <li> <a href="#"> Your Cart </a> </li>
-            </ul>
-        </nav>
-    <aside>
+
+    <div id="page-container">
+        <div id="header-banner">
+            <img src="{% static "img/header.jpg" %}" />
+            <h2><span>Everything Technology.</span><p>
+                <span>All in One Site.</span></p>
+            </h2>
+        </div>
+    <section class="vlist">
 
         <ul>
-            <h1>Categories</h1>
+            <h1> Categories </h1>
             {% for c in catalog_categories %}
             <li><a href="/store/products">{{ c.name }}</a></li>
             {% endfor %}
-            <li><a href="#">Some category</a></li>
-            <li><a href="#">Some category</a></li>
-            <li><a href="#">Some category</a></li>
-            <li><a href="#">Some category</a></li>
-            <li><a href="#">Some category</a></li>
         </ul>
-    </aside>
+    </section>
 
 
 
@@ -54,10 +64,11 @@
             <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
         <![endif]-->
 
-        <section id="content">
+        <div id="content-container">
         {% block content %}
         {% endblock content %}
-        </section>
+          </div>
+
 
         {% block javascript_library %}
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -76,5 +87,8 @@
             s.parentNode.insertBefore(g,s)}(document,'script'));
         </script>
     {% endblock body %}
+    </div>
+
     </body>
+
 </html>

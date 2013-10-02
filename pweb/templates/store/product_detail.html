@@ -1,6 +1,10 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block body_class %}{{ block.super }} home{% endblock %}
 
+{% block content %}
 <h1>{{product.name}}</h1>
-<h2> By {{product.manufacturer.name}}</h2>
+By {{product.manufacturer.name}}
 
 <ul>
     <li> Part Number: {{product.part_number}}
@@ -14,4 +18,4 @@
 </ul>
 
 <p> Buy Now for only {{product.price_in_dollars}}
-
+{% endblock %}
