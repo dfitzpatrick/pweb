@@ -4,6 +4,15 @@
 
 {% block content %}
     <!-- Add your site or application content here -->
-    This is a test
+    <div class="featured-categories-container">
+    {% for c in category_list %}
+        {% if c.is_featured %}
+            <div class="featured-category">
+                <h1>{{c.name}}</h1>
+                <img src="{{ MEDIA_URL }}{{ c.photo }}" />
+            </div>
+        {% endif %}
+    {% endfor %}
+    </div>
 
 {% endblock %}

@@ -78,7 +78,7 @@ TEMPLATE_LOADERS = (
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
-    "store.context_processors.base",
+    "store.context_processors.categories",
 )
 
 MIDDLEWARE_CLASSES = (

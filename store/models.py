@@ -35,6 +35,8 @@ class CatalogCategory(models.Model):
     name = models.CharField(max_length=300)
     slug = models.SlugField(max_length=150)
     description = models.TextField(blank=True)
+    photo = models.ImageField(upload_to='category_photo', blank=True, null=True)
+    is_featured = models.BooleanField(blank=True, default=False)
 
     def __unicode__(self):
         if self.parent:
