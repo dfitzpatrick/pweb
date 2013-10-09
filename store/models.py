@@ -19,7 +19,7 @@ class Product(models.Model):
     photo = models.ImageField(upload_to='product_photo', blank=True)
     manufacturer = models.ForeignKey('Manufacturer', related_name='Manufacturers')
     #manufacturer = models.CharField(max_length=300, blank=True)
-    price_in_dollars = models.DecimalField(max_digits=6,  decimal_places=2)
+    price_in_dollars = models.DecimalField(max_digits=12,  decimal_places=2)
     quantity = models.IntegerField(default=0)
     part_number = models.CharField(max_length=100)
     condition = models.CharField(max_length=100)
