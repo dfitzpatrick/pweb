@@ -37,6 +37,13 @@ def listing(request):
 
     return render_to_response('store/products.html', {"product_list": products})
 
+class CategoryView(generic.ListView):
+    paginate_by = 50
+    template_name = 'store/products.html'
+
+    def get_queryset(self):
+        return Product.objects.filter(category__id=self.kwargs['pk'])
+
 class ProductsView(generic.ListView):
     model = Product
 

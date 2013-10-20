@@ -115,6 +115,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'south',
     'store',
+    'massadmin',
 
 )
 

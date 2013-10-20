@@ -29,11 +29,30 @@
 
 
     <nav>
-        <ul>
+        <ul id="menu">
             <li><a href="#">About</a></li>
-            <li><a href="#">Search Products</a></li>
-            <li><a href="#">My Account</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#" class="drop">Search Products</a>
+                <div class="dropdown_5columns">
+                    {% for cat in category_list %}
+                    {% if not cat.parent  %}
+                    <div class="col_1">
+                        <h2>{{ cat.name }}</h2>
+                            <div id="subitem">
+                                {% for sub in subcategory_list %}
+                                    {% if sub.parent.id == cat.id %}
+                                        <a href="/store/{{ sub.slug }}/C{{ sub.id }}">
+                                        {{ sub.name }}
+                                        </a>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </li>
+            <li><a href="#" class="drop">My Account</a></li>
+            <li><a href="#" class="drop">Contact</a></li>
         </ul>
     </nav>
     <button type="button" name="" value="" class="yourcart">Cart (0 Items)</button>
